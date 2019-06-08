@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             swap(minPos, i);
-
         }
     }
 
