@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 displayItems(edtItems);
                 break;
             case R.id.activity_main_btn_sort:
-                directSort();
+                insertSort();
+//                directSort();
                 displayItems(tvResult);
                 break;
             default:
@@ -68,6 +69,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void insertSort() {
+        //todo:直接插入排序的具体实现
+        //分为有序区和无序区，从第一个元素开始，默认这个元素已经排序，取出下一个元素，在已经排序的元素中从后向前扫描
+        //如果这个已排序元素大于取出元素，将这个元素移到下一个位置
+        //直到找到已排序的元素小于或者等于取出元素，将取出的元素插入到这个位置中
+        for (int i = 1; i < items.length; i++) {
+            int temp = i;
+            int data = items[i];
+            for (int j = i - 1; j >= 0; j--) {
+                if (items[j] > data) {
+                    temp = j;
+                    items[j + 1] = items[j];
+                }
+            }
+            items[temp] = data;
+        }
+    }
+
     private void swap(int m, int n) {
         int tmp = items[m];
         items[m] = items[n];
@@ -78,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         items = new Integer[10];
         Random generator = new Random();
         for (int i = 0; i < items.length; i++) {
-            items[i] = generator.nextInt(99);
+            items[i] = generator.nextInt(9);
         }
     }
 }
