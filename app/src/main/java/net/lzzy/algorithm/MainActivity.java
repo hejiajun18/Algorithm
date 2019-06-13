@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //分为有序区和无序区，从第一个元素开始，默认这个元素已经排序，取出下一个元素，在已经排序的元素中从后向前扫描
         //如果这个已排序元素大于取出元素，将这个元素移到下一个位置
         //直到找到已排序的元素小于或者等于取出元素，将取出的元素插入到这个位置中
-        for (int i = 1; i < items.length; i++) {
+        for (int i = 1; i < items.length; i++){
             int j = i - 1;
-            if (items[j].compareTo(items[i]) < 0) {
+            if (items[j].compareTo(items[i]) < 0){
                 continue;
             }
             Integer tmp = items[i];
-            while (j >= 0 && items[j].compareTo(tmp) > 0) {
+            while (j >= 0 && items[j].compareTo(tmp) > 0){
                 items[j + 1] = items[j];
                 j--;
             }
