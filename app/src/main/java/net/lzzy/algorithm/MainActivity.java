@@ -1,5 +1,6 @@
 package net.lzzy.algorithm;
 
+import android.renderscript.ScriptIntrinsicYuvToRGB;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -75,15 +76,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //如果这个已排序元素大于取出元素，将这个元素移到下一个位置
         //直到找到已排序的元素小于或者等于取出元素，将取出的元素插入到这个位置中
         for (int i = 1; i < items.length; i++) {
-            int temp = i;
-            int data = items[i];
-            for (int j = i - 1; j >= 0; j--) {
-                if (items[j] > data) {
-                    temp = j;
-                    items[j + 1] = items[j];
-                }
+            int j = i - 1;
+            if (items[j].compareTo(items[i]) < 0) {
+                continue;
             }
-            items[temp] = data;
+            Integer tmp = items[i];
+            while (j >= 0 && items[j].compareTo(tmp) > 0) {
+                items[j + 1] = items[j];
+                j--;
+            }
+            items[j + 1] = tmp;
         }
     }
 
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         items = new Integer[10];
         Random generator = new Random();
         for (int i = 0; i < items.length; i++) {
-            items[i] = generator.nextInt(9);
+            items[i] = generator.nextInt(99);
         }
     }
 }
