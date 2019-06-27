@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * Created by lzzy_gxy on 2019/6/13.
  * Description:
  */
-public class DirectSort <T extends Comparable<? super T>> extends BaseSort{
+class DirectSort <T extends Comparable<? super T>> extends BaseSort{
 
     DirectSort(T[] items) {
         super(items);

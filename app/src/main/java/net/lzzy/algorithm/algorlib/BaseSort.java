@@ -15,6 +15,7 @@ public abstract class BaseSort<T extends Comparable<? super T>> {
     private int swapCount;
     int moveStep;
     //endregion
+
     BaseSort(T[] items) {
         this.items = items;
         compareCount = 0;
