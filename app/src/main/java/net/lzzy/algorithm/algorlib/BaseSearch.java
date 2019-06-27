@@ -33,6 +33,10 @@ public abstract class BaseSearch<T extends Comparable<? super T>> {
 
     public abstract int search(T key);
 
+    protected BaseSearch(){
+
+    }
+
     public long getDuration() {
         return duration;
     }

@@ -17,12 +17,12 @@ public class DirectSearch<T extends Comparable<? super T>> extends BaseSearch<T>
         int pos = 0;
         for (T item : items) {
             if (equal(item, key)) {
-                setDuration(System.currentTimeMillis()-start);
+                setDuration(System.currentTimeMillis() - start);
                 return pos;
             }
             pos++;
         }
-        setDuration(System.currentTimeMillis()-start);
+        setDuration(System.currentTimeMillis() - start);
         return -1;
     }
 }
